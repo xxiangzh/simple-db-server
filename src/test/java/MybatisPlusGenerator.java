@@ -15,7 +15,7 @@ import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 public class MybatisPlusGenerator {
 
     static final String TABLE_NAME = "t_mem_member";
-    static final String MODULE_NAME = "member";
+    static final String MODULE_NAME = TABLE_NAME;
 
     static final String PACKAGE_PATH = "com.xzh.db.club";
     static final String AUTHOR = "向振华";
@@ -39,7 +39,7 @@ public class MybatisPlusGenerator {
         globalConfig.setBaseResultMap(true);
         //生成BaseColumnList
         globalConfig.setBaseColumnList(true);
-        // 加上swagger注解
+        //加上swagger注解
         globalConfig.setSwagger2(true);
         //自定义service接口名
         globalConfig.setServiceName("%sService");
