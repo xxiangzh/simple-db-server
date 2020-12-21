@@ -6,7 +6,6 @@ import com.baomidou.mybatisplus.generator.config.StrategyConfig;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 
-
 /**
  * mybatis-plus代码生成器
  * mybatis-plus官网：https://mp.baomidou.com/
@@ -14,13 +13,17 @@ import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
  */
 public class MybatisPlusGenerator {
 
-    static final String TABLE_NAME = "t_mem_member";
-    static final String MODULE_NAME = TABLE_NAME;
+    // 表名
+    private static final String TABLE_NAME = "t_user";
+    // 包路径
+    private static final String PACKAGE_PATH = "com.xzh.db";
+    // 文件夹名
+    private static final String MODULE_NAME = "user";
+    // 表前缀（生成的类名会去掉前缀）
+    private static final String TABLE_PREFIX = "t_";
+    // 作者注释
+    private static final String AUTHOR = "向振华";
 
-    static final String PACKAGE_PATH = "com.xzh.db.club";
-    static final String AUTHOR = "向振华";
-
-    //修改TABLE_NAME、MODULE_NAME、AUTHOR后运行main方法
     //注意，会覆盖MODULE_NAME下的所有代码
     public static void main(String[] args) {
         // 代码生成器
@@ -77,7 +80,7 @@ public class MybatisPlusGenerator {
         //生成 @RestController 控制器
         strategy.setRestControllerStyle(true);
         //表前缀
-        strategy.setTablePrefix("t");
+        strategy.setTablePrefix(TABLE_PREFIX);
         //需要包含的表名，允许正则表达式（与exclude二选一配置）
         strategy.setInclude(TABLE_NAME);
         autoGenerator.setStrategy(strategy);
