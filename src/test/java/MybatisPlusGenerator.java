@@ -14,18 +14,25 @@ import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 public class MybatisPlusGenerator {
 
     // 表名
-    private static final String TABLE_NAME = "t_user";
+    private static final String TABLE_NAME = "t_sec_permission,t_sec_role,t_sec_role_permission,t_sec_user,t_sec_user_role";
     // 包路径
-    private static final String PACKAGE_PATH = "com.xzh.db";
+    private static final String PACKAGE_PATH = "com.xzh.db.sec";
     // 文件夹名
-    private static final String MODULE_NAME = "user";
+    private static final String MODULE_NAME = "";
     // 表前缀（生成的类名会去掉前缀）
-    private static final String TABLE_PREFIX = "t_";
+    private static final String TABLE_PREFIX = "t_sec";
     // 作者注释
     private static final String AUTHOR = "向振华";
 
     //注意，会覆盖MODULE_NAME下的所有代码
     public static void main(String[] args) {
+        String[] tables = TABLE_NAME.split(",");
+        for (String table : tables) {
+            build(table);
+        }
+    }
+
+    private static void build(String table) {
         // 代码生成器
         AutoGenerator autoGenerator = new AutoGenerator();
 
@@ -82,9 +89,8 @@ public class MybatisPlusGenerator {
         //表前缀
         strategy.setTablePrefix(TABLE_PREFIX);
         //需要包含的表名，允许正则表达式（与exclude二选一配置）
-        strategy.setInclude(TABLE_NAME);
+        strategy.setInclude(table);
         autoGenerator.setStrategy(strategy);
         autoGenerator.execute();
-
     }
 }
