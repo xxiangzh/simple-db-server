@@ -13,14 +13,14 @@ import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
  */
 public class MybatisPlusGenerator {
 
-    // 表名
-    private static final String TABLE_NAME = "t_sec_permission,t_sec_role,t_sec_role_permission,t_sec_user,t_sec_user_role";
+    // 表名（多表用逗号隔开）
+    private static final String TABLE_NAME = "t_sys_permission_code";
     // 包路径
-    private static final String PACKAGE_PATH = "com.xzh.db.sec";
+    private static final String PACKAGE_PATH = "com.xzh.db.sys";
     // 文件夹名
     private static final String MODULE_NAME = "";
     // 表前缀（生成的类名会去掉前缀）
-    private static final String TABLE_PREFIX = "t_sec";
+    private static final String TABLE_PREFIX = "t_sys";
     // 作者注释
     private static final String AUTHOR = "向振华";
 
@@ -60,7 +60,7 @@ public class MybatisPlusGenerator {
 
         //数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/xzh?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=UTC");
+        dsc.setUrl("jdbc:mysql://localhost:3306/db_saas?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=UTC");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("123456");
@@ -70,10 +70,18 @@ public class MybatisPlusGenerator {
         PackageConfig pc = new PackageConfig();
         pc.setParent(PACKAGE_PATH);
         pc.setModuleName(MODULE_NAME);
-        //在service包下生成Impl
-        pc.setServiceImpl("service");
-        //在mapper生成xml
+        //controller
+        pc.setController("controller");
+        //service
+        pc.setService("service");
+        //impl
+        pc.setServiceImpl("service.impl");
+        //mapper.xml
         pc.setXml("mapper");
+        //mapper.mapper
+        pc.setMapper("mapper");
+        //po
+        pc.setEntity("entity.po");
         autoGenerator.setPackageInfo(pc);
 
         //策略配置
