@@ -60,7 +60,7 @@ public class MybatisPlusGenerator {
 
         //数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/db_saas?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=UTC");
+        dsc.setUrl("jdbc:mysql://localhost:3306/db_xzh?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=UTC");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("123456");
@@ -71,21 +71,24 @@ public class MybatisPlusGenerator {
         pc.setParent(PACKAGE_PATH);
         pc.setModuleName(MODULE_NAME);
         //controller
-        pc.setController("controller");
+        //pc.setController("");
         //service
-        pc.setService("service");
+        //pc.setService("");
         //impl
-        pc.setServiceImpl("service.impl");
+        //pc.setServiceImpl("");
         //mapper.xml
-        pc.setXml("mapper");
+        //pc.setXml("");
         //mapper.mapper
-        pc.setMapper("mapper");
+        //pc.setMapper("");
         //po
-        pc.setEntity("entity.po");
+        //pc.setEntity("");
         autoGenerator.setPackageInfo(pc);
 
         //策略配置
         StrategyConfig strategy = new StrategyConfig();
+        //设置继承实体类
+        //strategy.setSuperEntityClass("com.xzh.xxx.BasePO");
+        //strategy.setSuperEntityColumns();
         //数据库表映射到实体的命名策略
         strategy.setNaming(NamingStrategy.underline_to_camel);
         //数据库表字段映射到实体的命名策略, 未指定按照 naming 执行
